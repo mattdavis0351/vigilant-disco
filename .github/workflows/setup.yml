@@ -1,0 +1,15 @@
+on: push
+
+jobs:
+  setup-repo:
+    if: ${{ github.event.commits[0].message == "Initial commit" }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+
+      # - name: view initial config
+      #   run: git config --get user.name
+
+      - name: cofigure git
+        uses: githubtraining/stage-commits-action@main
